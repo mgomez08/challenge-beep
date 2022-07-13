@@ -66,6 +66,7 @@ export const checkingFinish = () => {
 export const logout = () => {
   signOut(auth);
   localStorage.removeItem("accessToken");
+  localStorage.removeItem("movies");
   return {
     type: types.AUTH_LOGOUT,
   };
