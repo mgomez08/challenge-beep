@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { startRegister } from "../../actions/auth";
+import { setError, startRegister } from "../../actions/auth";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,17 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(startRegister(formValues.email, formValues.password));
+    if (
+      !formValues.email ||
+      !formValues.password ||
+      !formValues.confirmPassword
+    ) {
+      dispatch(setError("Todos los campos son obligatorios"));
+    } else if (formValues.password !== formValues.confirmPassword) {
+      dispatch(setError("Las contraseñas son diferentes"));
+    } else {
+      dispatch(startRegister(formValues.email, formValues.password));
+    }
   };
 
   return (
