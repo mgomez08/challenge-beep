@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Header from "../components/Header/Header";
 import Home from "../pages/Home";
+import { startSetMovies } from "../actions/movies";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,12 @@ const AppRouter = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      user ? dispatch(login(user)) : dispatch(checkingFinish());
+      if (user) {
+        dispatch(login(user));
+        dispatch(startSetMovies());
+      } else {
+        dispatch(checkingFinish());
+      }
     });
   }, [dispatch]);
   if (checking) return <div>Loading...</div>;
