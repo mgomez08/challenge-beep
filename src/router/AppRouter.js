@@ -6,8 +6,8 @@ import { auth } from "../config/firebase";
 import { checkingFinish, login } from "../actions/auth";
 import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 import Home from "../pages/Home";
 
 const AppRouter = () => {
