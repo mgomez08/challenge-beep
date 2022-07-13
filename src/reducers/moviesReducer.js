@@ -16,7 +16,11 @@ export const moviesReducer = (state = initialState, action) => {
         ...state,
         movies: state.movies.filter((movie) => movie.imdbID !== action.payload),
       };
-
+    case types.SET_MOVIES:
+      return {
+        ...state,
+        movies: action.payload,
+      };
     default:
       return state;
   }
