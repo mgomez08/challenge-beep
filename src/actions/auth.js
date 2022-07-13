@@ -18,7 +18,7 @@ export const startRegister = (email, password) => async (dispatch) => {
     localStorage.setItem("accessToken", user.accessToken);
     dispatch(register(user));
   } catch (error) {
-    console.log(error);
+    dispatch(setError(error.code));
   }
 };
 
@@ -35,7 +35,7 @@ export const startLogin = (email, password) => async (dispatch) => {
     localStorage.setItem("accessToken", user.accessToken);
     dispatch(login(user));
   } catch (error) {
-    console.log(error);
+    dispatch(setError(error.code));
   }
 };
 
@@ -53,7 +53,7 @@ export const startLoginWithGoogle = () => async (dispatch) => {
     localStorage.setItem("accessToken", user.accessToken);
     dispatch(login(user));
   } catch (error) {
-    console.log(error);
+    dispatch(setError(error.code));
   }
 };
 
@@ -68,5 +68,12 @@ export const logout = () => {
   localStorage.removeItem("accessToken");
   return {
     type: types.AUTH_LOGOUT,
+  };
+};
+
+export const setError = (error) => {
+  return {
+    type: types.AUTH_ERROR,
+    payload: error,
   };
 };
