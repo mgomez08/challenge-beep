@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeMovie } from "../../../actions/movies";
+import { startRemoveMovie } from "../../../actions/movies";
 import "./TableMovies.css";
 
 const TableMovies = () => {
@@ -8,7 +8,7 @@ const TableMovies = () => {
   const dispatch = useDispatch();
 
   const handleDeleteMovie = (imdbID) => {
-    dispatch(removeMovie(imdbID));
+    dispatch(startRemoveMovie(imdbID));
   };
   return (
     <div className="mt-5 table-responsive w-100 table-container">

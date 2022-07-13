@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addMovie } from "../../../actions/movies";
+import { startAddMovie } from "../../../actions/movies";
 
 const CardMovie = ({ data }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(addMovie(data));
+    dispatch(startAddMovie(data));
   };
   return (
     <div
