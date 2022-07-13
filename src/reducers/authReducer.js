@@ -4,6 +4,7 @@ const initialState = {
   checking: true,
   logged: false,
   user: null,
+  error: null,
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -14,6 +15,7 @@ export const authReducer = (state = initialState, action) => {
         checking: false,
         logged: true,
         user: action.payload,
+        error: null,
       };
     case types.AUTH_LOGIN:
       return {
@@ -21,11 +23,13 @@ export const authReducer = (state = initialState, action) => {
         checking: false,
         logged: true,
         user: action.payload,
+        error: null,
       };
     case types.AUTH_CHECKING_FINISH:
       return {
         ...state,
         checking: false,
+        error: null,
       };
     case types.AUTH_LOGOUT:
       return {
@@ -33,6 +37,13 @@ export const authReducer = (state = initialState, action) => {
         checking: false,
         logged: false,
         user: null,
+        error: null,
+      };
+    case types.AUTH_ERROR:
+      return {
+        ...state,
+        checking: false,
+        error: action.payload,
       };
     default:
       return state;
