@@ -8,10 +8,10 @@ const Home = () => {
     dispatch(logout());
   };
   return (
-    <div>
+    <React.Fragment>
       <h1>home</h1>
       <button onClick={handleLogout}>Logout</button>
-    </div>
+    </React.Fragment>
   );
 };
 
