@@ -2,6 +2,8 @@ import types from "../types";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
@@ -42,6 +44,17 @@ export const login = (user) => {
     type: types.AUTH_LOGIN,
     payload: user,
   };
+};
+
+export const startLoginWithGoogle = () => async (dispatch) => {
+  try {
+    const googleProvider = new GoogleAuthProvider();
+    const { user } = await signInWithPopup(auth, googleProvider);
+    localStorage.setItem("accessToken", user.accessToken);
+    dispatch(login(user));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const checkingFinish = () => {
