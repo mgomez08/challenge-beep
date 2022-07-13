@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { startLogin } from "../../actions/auth";
+import { setError, startLogin } from "../../actions/auth";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,11 @@ const LoginForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(startLogin(formValues.email, formValues.password));
+    if (!formValues.email || !formValues.password) {
+      dispatch(setError("Todos los campos son obligatorios"));
+    } else {
+      dispatch(startLogin(formValues.email, formValues.password));
+    }
   };
 
   return (
