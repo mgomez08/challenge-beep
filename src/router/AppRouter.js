@@ -8,6 +8,7 @@ import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Header from "../components/Header/Header";
 import Home from "../pages/Home";
 
 const AppRouter = () => {
@@ -23,6 +24,7 @@ const AppRouter = () => {
 
   return (
     <BrowserRouter>
+      {logged && <Header />}
       <Routes>
         <Route
           path="/login"
