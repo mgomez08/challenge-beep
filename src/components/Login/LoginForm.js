@@ -21,26 +21,34 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="youremail@company.com"
-        value={formValues.email}
-        onChange={handleChange}
-      />
+      <div className="form-floating mb-3">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          className="form-control"
+          placeholder="youremail@company.com"
+          value={formValues.email}
+          onChange={handleChange}
+        />
+        <label htmlFor="email">Email</label>
+      </div>
+      <div className="form-floating mb-3">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          className="form-control"
+          value={formValues.password}
+          onChange={handleChange}
+          placeholder="Contraseña"
+        />
+        <label htmlFor="password">Contraseña</label>
+      </div>
 
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        value={formValues.password}
-        onChange={handleChange}
-      />
-
-      <button type="submit">Login</button>
+      <button className="btn btn-primary btn-lg w-100" type="submit">
+        Iniciar sesión
+      </button>
     </form>
   );
 };
