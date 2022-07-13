@@ -4,11 +4,9 @@ import AppRouter from "./router/AppRouter";
 
 function BeepApp() {
   return (
-    <>
-      <Provider store={store}>
-        <AppRouter />
-      </Provider>
-    </>
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
   );
 }
 
