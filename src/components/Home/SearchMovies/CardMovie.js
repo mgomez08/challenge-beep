@@ -1,8 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addMovie } from "../../../actions/movies";
 
 const CardMovie = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(addMovie(data));
+  };
   return (
-    <div className="card d-flex flex-row p-1 btn text-start">
+    <div
+      className="card d-flex flex-row p-1 btn text-start"
+      onClick={handleClick}
+    >
       <img
         src={data?.Poster}
         alt={data?.Title}
