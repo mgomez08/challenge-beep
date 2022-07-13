@@ -9,6 +9,7 @@ const types = {
   //MOVIES
   ADD_MOVIE: "[MOVIES] Add Movie",
   REMOVE_MOVIE: "[MOVIES] Remove Movie",
+  SET_MOVIES: "[MOVIES] Set Movies",
 };
 
 export default types;
