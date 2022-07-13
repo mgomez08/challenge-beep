@@ -41,7 +41,7 @@ const SearchMovies = () => {
       />
       {loading && <Loader />}
       {open && !loading && <ResultsBox movies={movies} />}
-      {movies.length === 0 && !loading && (
+      {movies.length === 0 && !loading && search.length >= 3 && (
         <p className="mt-2">
           No se encontraron resultados por <strong>{search}</strong>
         </p>
