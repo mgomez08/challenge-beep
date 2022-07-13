@@ -1,0 +1,8 @@
+.table-container {
+  height: 350px;
+}
+.img-table {
+  width: 70px;
+  height: auto;
+  object-fit: cover;
+}
