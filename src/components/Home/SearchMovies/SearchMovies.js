@@ -29,7 +29,7 @@ const SearchMovies = () => {
   };
   return (
     <div className="search-movies">
-      <h2 className="h2">Busca una película</h2>
+      <h2 className="h2">Busca y agrega una película</h2>
       <input
         type="text"
         name="search"
