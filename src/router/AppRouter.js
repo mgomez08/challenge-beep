@@ -11,6 +11,7 @@ import Register from "../pages/Register/Register";
 import Header from "../components/Header/Header";
 import Home from "../pages/Home";
 import { startSetMovies } from "../actions/movies";
+import Loader from "../components/Other/Loader/Loader";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const AppRouter = () => {
       }
     });
   }, [dispatch]);
-  if (checking) return <div>Loading...</div>;
+  if (checking) return <Loader />;
 
   return (
     <BrowserRouter>
