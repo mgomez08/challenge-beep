@@ -3,8 +3,10 @@ import types from "../types";
 export const startAddMovie = (movie) => async (dispatch, getState) => {
   try {
     const { movies } = getState().movies;
-    localStorage.setItem("movies", JSON.stringify([...movies, movie]));
-    dispatch(addMovie(movie));
+    if (!movies.some((m) => m.imdbID === movie.imdbID)) {
+      localStorage.setItem("movies", JSON.stringify([...movies, movie]));
+      dispatch(addMovie(movie));
+    }
   } catch (error) {
     console.log(error);
   }
