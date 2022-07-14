@@ -11,7 +11,7 @@ const TableMovies = () => {
     dispatch(startRemoveMovie(imdbID));
   };
   return (
-    <div className="mt-5 table-responsive w-100 table-container">
+    <div className=" table-responsive w-100 table-container">
       <table className="table table-striped">
         <thead>
           <tr>

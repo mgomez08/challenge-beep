@@ -8,7 +8,14 @@ const Home = () => {
   return (
     <main className="container d-flex flex-column align-items-center mt-3">
       <SearchMovies />
-      {movies.length > 0 ? <TableMovies /> : <p>No hay películas agregadas</p>}
+      {movies.length > 0 ? (
+        <>
+          <h2 className="h2 mt-4">Listado de películas</h2>
+          <TableMovies />
+        </>
+      ) : (
+        <p>No hay películas agregadas</p>
+      )}
     </main>
   );
 };
